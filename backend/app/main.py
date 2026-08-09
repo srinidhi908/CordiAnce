@@ -1,18 +1,17 @@
 from fastapi import FastAPI
 
-from app.core.config import settings
+from app.modules.auth.router import router as auth_router
 
 app = FastAPI(
-    title=settings.APP_NAME,
-    version=settings.APP_VERSION,
-    description="A Trustworthy Explainable Multi-Agent AI System for Early Detection of Heart Disease and Personalized Monitoring",
+    title="CordiAnce API",
+    version="1.0.0",
 )
+
+app.include_router(auth_router)
 
 
 @app.get("/")
 def root():
     return {
-        "message": f"Welcome to {settings.APP_NAME} 🚀",
-        "version": settings.APP_VERSION,
-        "status": "Running Successfully"
+        "message": "Welcome to CordiAnce API"
     }

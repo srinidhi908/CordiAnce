@@ -5,6 +5,10 @@ from pydantic import BaseModel, EmailStr, Field
 from app.shared.enums import UserRole
 
 
+# ==========================
+# Register Schemas
+# ==========================
+
 class RegisterRequest(BaseModel):
     email: EmailStr
     phone: str = Field(..., min_length=10, max_length=15)
@@ -17,15 +21,23 @@ class RegisterResponse(BaseModel):
     user_id: UUID
 
 
+# ==========================
+# Login Schemas
+# ==========================
+
 class LoginRequest(BaseModel):
     email: EmailStr
-    password: str
+    password: str = Field(..., min_length=8, max_length=100)
 
 
-class TokenResponse(BaseModel):
+class LoginResponse(BaseModel):
     access_token: str
-    token_type: str
+    token_type: str = "bearer"
 
+
+# ==========================
+# User Response Schema
+# ==========================
 
 class UserResponse(BaseModel):
     id: UUID

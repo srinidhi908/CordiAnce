@@ -1,44 +1,23 @@
-# Python
+# Python virtual environment
+backend/.venv/
+
+# Environment variables
+backend/.env
+
+# Python cache
 __pycache__/
 *.py[cod]
-*.pyo
-
-# Virtual Environment
-.venv/
-venv/
-env/
-
-# Environment Variables
-.env
 
 # IDE
 .vscode/
 .idea/
 
-# Database
-*.db
-
-# Logs
-*.log
-
-# OS
+# OS files
 .DS_Store
 Thumbs.db
 
-# Build
-dist/
-build/
+# Testing
+.pytest_cache/
 
-# Flutter
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.packages
-build/
-
-# Android
-android/.gradle/
-android/local.properties
-
-# iOS
-ios/Pods/
+# Logs
+*.log
